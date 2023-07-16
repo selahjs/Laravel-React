@@ -47,7 +47,7 @@ class ProductController extends Controller
         //based on the inputs create a product in the db
         Product::create($request -> all());
 
-        return redirect()->route('products.index')->with('succuss', 'Product created successfully!');
+        return redirect()->route('products.index')->with('success', 'Product created successfully!');
 
     }
 
@@ -59,7 +59,7 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
-        //
+        return view('products.show', compact('product'));
     }
 
     /**
@@ -70,7 +70,7 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        //
+        return view('products.edit', compact('product'));
     }
 
     /**
@@ -82,7 +82,17 @@ class ProductController extends Controller
      */
     public function update(Request $request, Product $product)
     {
-        //
+        //validate the request
+        $request -> validate([
+            'name' => 'required',
+            'detail' => 'required'
+        ]);
+
+        //update the all product
+        $product -> update($request -> all());
+
+        return redirect()->route('products.index')
+            ->with('success', 'Product updated successfully!');
     }
 
     /**
@@ -93,6 +103,9 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
-        //
+        $product->delete();
+
+        return redirect()->route('products.index')
+            ->with('success','Product deleted successfully');
     }
 }
