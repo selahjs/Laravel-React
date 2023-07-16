@@ -14,7 +14,10 @@ class ProductController extends Controller
      */
     public function index()
     {
-        //
+        // displays the latest data from database 
+        $products = Product::latest()->paginate(5);
+
+        return view('products.index', compact('products'))->with(request()-> input('page'));
     }
 
     /**
@@ -35,7 +38,17 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //validate the request
+        $request -> validate([
+            'name' => 'required',
+            'detail' => 'required'
+        ]);
+
+        //based on the inputs create a product in the db
+        Product::create($request -> all());
+
+        return redirect()->route('products.index')->with('succuss', 'Product created successfully!');
+
     }
 
     /**

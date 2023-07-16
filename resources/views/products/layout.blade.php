@@ -4,13 +4,13 @@
 <head>
     <title>Laravel crud</title>
     <!-- Fonts -->
-    <link href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/css/bootstrap.css" rel="stylesheet">
 
 </head>
 <body>
     <h1>Main Layout</h1>
     <div class="container">
-        @yield('create')
+        @yield('content')
     </div>
 </body>
 </html>
