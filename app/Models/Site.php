@@ -5,9 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Region extends Model
+class Site extends Model
 {
     use HasFactory;
-    protected $table = 'svc_regions';
-    public $timestamps = false;
 }
