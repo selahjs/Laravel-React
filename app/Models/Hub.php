@@ -8,4 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class Hub extends Model
 {
     use HasFactory;
+    protected $table = 'svc_hubs';
 }
