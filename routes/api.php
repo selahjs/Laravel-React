@@ -7,6 +7,7 @@ use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\RegionController;
 use App\Http\Controllers\ProvinceController;
 use App\Http\Controllers\HubController;
+use App\Http\Controllers\MobilizerController;
 use App\Http\Controllers\SiteController;
 
 /*
@@ -30,5 +31,6 @@ Route::get('/regions', [RegionController::class, 'index']);
 Route::get('/provinces', [ProvinceController::class, 'index']);
 Route::get('/hubs', [HubController::class, 'index']);
 Route::get('/sites', [SiteController::class, 'index']);
+Route::get('/mobilizers/{pageNum?}', [MobilizerController::class, 'index']);
 // Route::middleware('auth:sanctum')->apiResource('products', ProductsController::class);
 
